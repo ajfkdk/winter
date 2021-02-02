@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:keydown</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			测试keydown的方法<input type="text" v-on:keydown="fun($event)">
+		</div>
+	</body>
+	<script>
+		//view model
+		new Vue({
+			el:'#app',
+			methods:{
+				fun:function (event) {
+					var keycode =event.keyCode;
+
+					if (!(keycode >= 48 & keycode <= 57)) {
+						event.preventDefault();
+					}
+				}
+			}
+		});
+	</script>
+	
+	
+
+</html>

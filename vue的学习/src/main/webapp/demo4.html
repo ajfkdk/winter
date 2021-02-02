@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:mouseover</title>
+		<style>
+			#div {
+				background-color: red;
+			}
+		</style>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<div @mouseover="fun1" id="div">
+				<textarea @mouseover="fun2($event)">这是一个文件域</textarea>
+			</div>{{message}}
+		</div>
+
+	</body>
+	<script>
+		//view model
+		new Vue({
+			el:"#app",
+			data:{
+				message: "hello Vue"
+			},
+			methods:{
+				fun1:function () {
+					this.message = "鼠标悬停在div域上面";
+
+				},
+				fun2:function () {
+					this.message = "鼠标停在text域上面";
+					event.stopPropagation();
+				}
+			}
+
+		})
+	</script>
+
+</html>
