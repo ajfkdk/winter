@@ -268,6 +268,7 @@
     <!-- @@block = content -->
 
     <div class="content-wrapper">
+        <form action="demo2.html" method="post">
         <div class="row data-type">
 
             <div class="col-md-2 title">订单编号</div>
@@ -295,19 +296,31 @@
                 <input type="text" class="form-control" placeholder="文本" value="">
             </div>
 
-            <div class="col-md-2 title">其他信息</div>
-            <div class="col-md-10 data text">
+            <div class="col-md-2 title">产品价格</div>
+            <div class="col-md-4 data text">
                 <input type="text" class="form-control" placeholder="文本" value="">
             </div>
 
-            <div class="col-md-2 title rowHeight2x">高度2x</div>
+            <div class="col-md-2 title">产品状态</div>
+
+                <div class="col-md-4 data">
+                    <select class="form-control">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </div>
+
+            <div class="col-md-2 title rowHeight2x">其他信息</div>
             <div class="col-md-10 data rowHeight2x">
                 <textarea class="form-control" rows="3" placeholder="请输入..."></textarea>
             </div>
-
+            <div class="col-md-10 data text-center">
+                <button type="submit" class="btn bg-maroon">保存</button>
+                <button type="reset" class="btn bg-default" >返回</button>
+            </div>
         </div>
 
-
+        </form>
 
 
     </div>

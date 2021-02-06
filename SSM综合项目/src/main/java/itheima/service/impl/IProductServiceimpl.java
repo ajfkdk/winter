@@ -16,4 +16,9 @@ public class IProductServiceimpl implements IProductService {
         List<Product> all = dao.findAll();
         return all;
     }
+
+    @Override
+    public void add(Product product) {
+        dao.add(product);
+    }
 }

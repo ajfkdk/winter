@@ -1,12 +1,17 @@
 package itheima.domain;
 
+import itheima.util.dataUtil;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.text.ParseException;
 import java.util.Date;
 
 public class Product {
-        private String id; // 主键
+        private int id; // 主键
         private String productNum; // 编号 唯一
         private String productName; // 名称
         private String cityName; // 出发城市
+    @DateTimeFormat(pattern = "yyyy/mm/dd - HH:mm")
         private Date departureTime; // 出发时间
         private String departureTimeStr;
         private double productPrice; // 产品价格
@@ -30,7 +35,7 @@ public class Product {
                 '}';
     }
 
-    public Product(String id, String productNum, String productName, String cityName, Date departureTime, String departureTimeStr, double productPrice, String productDesc, Integer productStatus, String productStatusStr) {
+    public Product(int id, String productNum, String productName, String cityName, Date departureTime, String departureTimeStr, double productPrice, String productDesc, Integer productStatus, String productStatusStr) {
         this.id = id;
         this.productNum = productNum;
         this.productName = productName;
@@ -46,11 +51,11 @@ public class Product {
     public Product() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -78,19 +83,27 @@ public class Product {
         this.cityName = cityName;
     }
 
-    public Date getDepartureTime() {
+    public Date getDepartureTime(){
         return departureTime;
     }
-
+    dataUtil dataUtil = new dataUtil();
     public void setDepartureTime(Date departureTime) {
         this.departureTime = departureTime;
+        String s=null;
+        try {
+            s = dataUtil.Data2String(departureTime);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.setDepartureTimeStr(s);
     }
 
-    public String getDepartureTimeStr() {
+    public String getDepartureTimeStr()  {
         return departureTimeStr;
     }
 
     public void setDepartureTimeStr(String departureTimeStr) {
+
         this.departureTimeStr = departureTimeStr;
     }
 
@@ -111,10 +124,21 @@ public class Product {
     }
 
     public Integer getProductStatus() {
+        if (productStatusStr.equals("开启")) {
+            productStatus=1;
+        } else if (productStatusStr.equals("关闭")) {
+            productStatus=0;
+        }
+        productStatusStr=null;
         return productStatus;
     }
 
     public void setProductStatus(Integer productStatus) {
+        if (productStatus == 1) {
+            this.productStatusStr="开启";
+        } else if (productStatus == 0||productStatus==null) {
+            this.productStatusStr="关闭";
+        }
         this.productStatus = productStatus;
     }
 
