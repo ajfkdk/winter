@@ -12,14 +12,33 @@ public class orders {
     private Date orderTime;
     //    时间yyyy/MM/dd HH:mm
     private String orderTimeStr;
+    private Integer peopleCount;
+    private String orderDesc;
+    private Integer payType;
+    //    （0代表支付表 1代表微信 2代表其他）
+    private String payTypeStr;
+    private Integer orderStatus;
+    private String orderStatusStr;//(0代表未支付 1代表支付）
+    private Integer productId;//外键
+    private Integer memberId;//外键
+    //    会员表
+    private menber menber;
+    //    另外一个表
+    private Product product;
+//    游客表（一个订单可以有多个游客）
+    private List<traveller> travellers;
 
-    public orders() {
-    }
+
+
+
+//    +++++++++++++++++++++++++++++++++++++++++++++
+
 
     @Override
     public String toString() {
         return "orders{" +
-                "id=" + id +
+                "util=" + util +
+                ", id=" + id +
                 ", orderNum='" + orderNum + '\'' +
                 ", orderTime=" + orderTime +
                 ", orderTimeStr='" + orderTimeStr + '\'' +
@@ -31,9 +50,18 @@ public class orders {
                 ", orderStatusStr='" + orderStatusStr + '\'' +
                 ", productId=" + productId +
                 ", memberId=" + memberId +
+                ", menber=" + menber +
                 ", product=" + product +
                 ", travellers=" + travellers +
                 '}';
+    }
+
+    public dataUtil getUtil() {
+        return util;
+    }
+
+    public void setUtil(dataUtil util) {
+        this.util = util;
     }
 
     public Integer getId() {
@@ -109,7 +137,6 @@ public class orders {
         }
         return payTypeStr;
     }
-
     public void setPayTypeStr(String payTypeStr) {
         this.payTypeStr = payTypeStr;
     }
@@ -146,6 +173,14 @@ public class orders {
         this.memberId = memberId;
     }
 
+    public itheima.domain.menber getMenber() {
+        return menber;
+    }
+
+    public void setMenber(itheima.domain.menber menber) {
+        this.menber = menber;
+    }
+
     public Product getProduct() {
         return product;
     }
@@ -162,7 +197,11 @@ public class orders {
         this.travellers = travellers;
     }
 
-    public orders(Integer id, String orderNum, Date orderTime, String orderTimeStr, Integer peopleCount, String orderDesc, Integer payType, String payTypeStr, Integer orderStatus, String orderStatusStr, Integer productId, Integer memberId, Product product, List<traveller> travellers) {
+    public orders() {
+    }
+
+    public orders(dataUtil util, Integer id, String orderNum, Date orderTime, String orderTimeStr, Integer peopleCount, String orderDesc, Integer payType, String payTypeStr, Integer orderStatus, String orderStatusStr, Integer productId, Integer memberId, itheima.domain.menber menber, Product product, List<traveller> travellers) {
+        this.util = util;
         this.id = id;
         this.orderNum = orderNum;
         this.orderTime = orderTime;
@@ -175,21 +214,8 @@ public class orders {
         this.orderStatusStr = orderStatusStr;
         this.productId = productId;
         this.memberId = memberId;
+        this.menber = menber;
         this.product = product;
         this.travellers = travellers;
     }
-
-    private Integer peopleCount;
-    private String orderDesc;
-    private Integer payType;
-    //    （0代表支付表 1代表微信 2代表其他）
-    private String payTypeStr;
-    private Integer orderStatus;
-    private String orderStatusStr;//(0代表未支付 1代表支付）
-    private Integer productId;//外键
-    private Integer memberId;//外键
-    //    另外一个表
-    private Product product;
-//    游客表（一个订单可以有多个游客）
-    private List<traveller> travellers;
 }

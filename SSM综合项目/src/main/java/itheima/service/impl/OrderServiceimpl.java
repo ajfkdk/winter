@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-
 public class OrderServiceimpl implements OrderService {
     @Autowired
     private IOrderDao dao;
@@ -17,6 +16,12 @@ public class OrderServiceimpl implements OrderService {
     public List<orders> findAll(int page, int size) {
         PageHelper.startPage(page, size);
         List<orders> orders = dao.FindAll();
+        return orders;
+    }
+
+    @Override
+    public orders findByid(int id) {
+        orders orders=dao.findByid(id);
         return orders;
     }
 }

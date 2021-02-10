@@ -1,6 +1,8 @@
 import itheima.dao.IProductDao;
 import itheima.domain.Product;
+import itheima.domain.orders;
 import itheima.service.impl.IProductServiceimpl;
+import itheima.service.impl.OrderServiceimpl;
 import itheima.util.dataUtil;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +31,20 @@ public class demo {
         SimpleDateFormat format = new SimpleDateFormat("yyyy/mm/dd - HH:mm");
         Date parse = format.parse(dateString);
         System.out.println(parse);
+    }
+
+    @Test
+    public void test02() {
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("application.xml");
+        OrderServiceimpl service = ioc.getBean("orderServiceimpl", OrderServiceimpl.class);
+
+        orders order = service.findByid(2);
+        if (order == null) {
+            System.out.println("没有找到信息");
+        } else {
+            System.out.println(order.toString());
+        }
+
+
     }
 }

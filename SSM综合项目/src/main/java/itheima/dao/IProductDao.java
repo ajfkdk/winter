@@ -15,6 +15,6 @@ public interface IProductDao {
     void add(Product product);
 //    查找一个的方法
     @Select("select * from product where id=#{id}")
-    Product findone(String id);
+    Product findone(int id);
 
 }

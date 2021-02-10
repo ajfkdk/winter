@@ -70,6 +70,15 @@ public class traveller {
     }
 
     public void setCredentialsTypeStr(String credentialsTypeStr) {
+        if (credentialsType != null) {
+            if (credentialsType == 0) {
+                credentialsTypeStr = "身份证";
+            } else if (credentialsType == 1) {
+                credentialsTypeStr = "护照";
+            } else if (credentialsType == 2) {
+                credentialsTypeStr = "军官证";
+            }
+        }
         this.credentialsTypeStr = credentialsTypeStr;
     }
 
@@ -88,8 +97,15 @@ public class traveller {
     public void setTravellerType(Integer travellerType) {
         this.travellerType = travellerType;
     }
-
+//旅客类型
     public String getTravellerTypeStr() {
+        if (travellerType != null) {
+            if (travellerType == 1) {
+                travellerTypeStr = "儿童";
+            } else if (travellerType == 0) {
+                travellerTypeStr = "成人";
+            }
+        }
         return travellerTypeStr;
     }
 

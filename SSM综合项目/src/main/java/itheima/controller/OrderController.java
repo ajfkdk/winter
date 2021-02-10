@@ -16,15 +16,25 @@ import java.util.List;
 public class OrderController {
     @Autowired
     private OrderService service;
+
     @RequestMapping("findAll")
 //    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required =true,defaultValue = "4") int size) {
-    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required =true,defaultValue = "4") int size) {
+    public ModelAndView findAll(@RequestParam(name = "page", required = true, defaultValue = "1") int page, @RequestParam(name = "size", required = true, defaultValue = "4") int size) {
 
         ModelAndView mv = new ModelAndView();
-        List<orders> all = service.findAll(page,size);
+        List<orders> all = service.findAll(page, size);
         PageInfo pageInfo = new PageInfo(all);
-        mv.addObject("pageInfo",pageInfo);
+        mv.addObject("pageInfo", pageInfo);
         mv.setViewName("order-page-list");
         return mv;
+    }
+
+    @RequestMapping("findByid")
+    public ModelAndView findByid(int id) {
+        ModelAndView mv = new ModelAndView();
+        orders byid = service.findByid(id);
+        mv.addObject("OrderList",byid);
+        mv.setViewName("");
+        return null;
     }
 }

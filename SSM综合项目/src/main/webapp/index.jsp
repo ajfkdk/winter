@@ -7,5 +7,7 @@
 <br>
 <hr>
 <a href="order/findAll">FindAllOrders</a>
+<hr>
+<a href="pages/orderShow.jsp">FindAllOrders</a>
 </body>
 </html>
