@@ -13,4 +13,8 @@ public interface IProductDao {
     List<Product> findAll() throws Exception;
     @Insert("insert into `ssm2`.`product` (`id`, `productNum`, `productName`, `cityName`, `DepartureTime`, `productPrice`, `productDesc`, `productStatus`) values (#{id},#{productNum},#{productName},#{cityName},#{departureTime},#{productPrice},#{productDesc},#{productStatus})")
     void add(Product product);
+//    查找一个的方法
+    @Select("select * from product where id=#{id}")
+    Product findone(String id);
+
 }

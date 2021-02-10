@@ -91,7 +91,7 @@ able">
                             <tbody>
 <c:forEach items="${productList}" var="product">
                             <tr>
-                                <td><input name="ids" type="checkbox"></td>
+                                <td><input name="ids" class="icheckbox_square-blue" type="checkbox"></td>
                                 <td>${product.id}</td>
                                 <td>${product.productNum}</td>
                                 <td>${product.productName}</td>
