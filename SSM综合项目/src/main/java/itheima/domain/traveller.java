@@ -66,10 +66,6 @@ public class traveller {
     }
 
     public String getCredentialsTypeStr() {
-        return credentialsTypeStr;
-    }
-
-    public void setCredentialsTypeStr(String credentialsTypeStr) {
         if (credentialsType != null) {
             if (credentialsType == 0) {
                 credentialsTypeStr = "身份证";
@@ -79,10 +75,16 @@ public class traveller {
                 credentialsTypeStr = "军官证";
             }
         }
+        return credentialsTypeStr;
+    }
+
+    public void setCredentialsTypeStr(String credentialsTypeStr) {
+
         this.credentialsTypeStr = credentialsTypeStr;
     }
 
     public String getCredentialsNum() {
+
         return credentialsNum;
     }
 

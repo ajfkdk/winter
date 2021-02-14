@@ -101,9 +101,9 @@ able">
                             <td>${order.orderTimeStr}</td>
                             <td>${order.payTypeStr}</td>
                             <td class="text-center">
-                                <button type="button" class="btn bg-olive btn-xs" >订单</button>
-                                <button type="button" class="btn bg-olive btn-xs" >详情</button>
-                                <button type="button" class="btn bg-olive btn-xs" >编辑</button>
+<%--                                <button type="button" class="btn bg-olive btn-xs" >订单</button>--%>
+                                <a href="${pageContext.request.contextPath}/order/findByid?id=${order.id}"> <button type="button" class="btn bg-olive btn-xs" >详情</button></a>
+<%--                                <button type="button" class="btn bg-olive btn-xs" >编辑</button>--%>
                             </td>
                         </tr>
                         </c:forEach>

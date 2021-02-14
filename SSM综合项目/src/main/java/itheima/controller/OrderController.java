@@ -34,7 +34,7 @@ public class OrderController {
         ModelAndView mv = new ModelAndView();
         orders byid = service.findByid(id);
         mv.addObject("OrderList",byid);
-        mv.setViewName("");
-        return null;
+        mv.setViewName("orderShow");
+        return mv;
     }
 }
