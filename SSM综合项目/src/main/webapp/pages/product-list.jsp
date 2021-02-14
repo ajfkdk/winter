@@ -5,7 +5,7 @@
   Time: 10:30
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8"  isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--页面的资源引用--%>
 <jsp:include page="ehead.jsp"></jsp:include>
