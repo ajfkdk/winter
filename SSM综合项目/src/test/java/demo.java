@@ -7,6 +7,7 @@ import itheima.util.dataUtil;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,6 +46,14 @@ public class demo {
             System.out.println(order.toString());
         }
 
+
+    }
+
+    @Test
+    public void test05() {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encode = encoder.encode("123123");
+        System.out.println(encode);
 
     }
 }

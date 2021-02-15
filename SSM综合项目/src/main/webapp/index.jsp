@@ -9,5 +9,9 @@
 <a href="order/findAll">FindAllOrders</a>
 <hr>
 <a href="pages/orderShow.jsp">FindAllOrders</a>
+<hr>
+<a href="pages/login.jsp">testLogin</a>
+<hr>
+<a href="user/findAll">user/findAll</a>
 </body>
 </html>

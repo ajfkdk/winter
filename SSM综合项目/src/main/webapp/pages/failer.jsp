@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -48,57 +48,25 @@
 
 <%--<body background="../img/background.jpg" style=" background-repeat:no-repeat ;background-size:100% 100%;--%>
 <%--background-attachment: fixed;">--%>
-<body >
+<body>
 
+<section class="content">
+    <div class="error-page">
+        <h2 class="headline text-red"> 登录失败！ </h2>
 
-<div class="login-box">
-    <div class="login-logo">
+        <div class="error-content">
+            <h3><i class="fa fa-warning text-red"></i> Oops! 密码或是用户名错误.</h3>
 
+            <p>
+                你没有权限使用该系统，你可以 <a href="login.jsp">尝试重新登录</a>
+            </p>
 
-        <a href="all-admin-index.html"><b>数据</b>后台管理系统</a>
-
-
-    </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-        <p class="login-box-msg">登录系统</p>
-
-        <form action="${pageContext.request.contextPath}/login" method="post">
-            <div class="form-group has-feedback">
-                <input type="text" name="username" class="form-control">
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input type="password" name="password" class="form-control" placeholder="密码">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label><input type="checkbox"> 记住 下次自动登录</label>
-                    </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
-                </div>
-                <!-- /.col -->
-            </div>
-        </form>
-
-        <div class="social-auth-links text-center">
-            <p>- 或者 -</p>
-            <a href="#" class="btn btn-block btn-social btn-info btn-flat"><i class="fa fa-qq"></i> 腾讯QQ用户登录</a>
-            <a href="#" class="btn btn-block  btn-social bg-olive btn-flat"><i class="fa fa-weixin"></i> 微信用户登录</a>
         </div>
-        <!-- /.social-auth-links -->
-
-        <a href="#">忘记密码</a><br>
-        <a href="all-admin-register.html" class="text-center">新用户注册</a>
-
+        <!-- /.error-content -->
     </div>
-    <!-- /.login-box-body -->
-</div>
+    <!-- /.error-page -->
+</section>
+
 <!-- /.login-box -->
 
 <!-- jQuery 2.2.3 -->
@@ -108,7 +76,7 @@
 <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="../plugins/iCheck/icheck.min.js"></script>
 <script>
-    $(function() {
+    $(function () {
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-blue',
             radioClass: 'iradio_square-blue',
