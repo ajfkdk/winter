@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @Controller
@@ -18,8 +19,9 @@ public class OrderController {
     private OrderService service;
 
     @RequestMapping("findAll")
-//    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required =true,defaultValue = "4") int size) {
-    public ModelAndView findAll(@RequestParam(name = "page", required = true, defaultValue = "1") int page, @RequestParam(name = "size", required = true, defaultValue = "4") int size) {
+
+//    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page,@RequestParam(name = "size",required =true,defaultValue = "4") Integer size) {
+    public ModelAndView findAll(@RequestParam(name = "page", required = true, defaultValue = "1") Integer page, @RequestParam(name = "size", required = true, defaultValue = "4") Integer size) {
 
         ModelAndView mv = new ModelAndView();
         List<orders> all = service.findAll(page, size);
@@ -30,10 +32,10 @@ public class OrderController {
     }
 
     @RequestMapping("findByid")
-    public ModelAndView findByid(int id) {
+    public ModelAndView findByid(Integer id) {
         ModelAndView mv = new ModelAndView();
         orders byid = service.findByid(id);
-        mv.addObject("OrderList",byid);
+        mv.addObject("OrderList", byid);
         mv.setViewName("orderShow");
         return mv;
     }

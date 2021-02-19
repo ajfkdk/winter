@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="secutiry" uri="http://www.springframework.org/security/tags" %>
 <header class="main-header">
 
 
@@ -31,16 +32,22 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="${pageContext.request.contextPath}/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">杨雯</span>
+                        <img src="${pageContext.request.contextPath}/img/user2-160x160.jpg" class="user-image"
+                             alt="User Image">
+                        <span class="hidden-xs">
+<%--                         principal（代表当前操作的用户）.username   --%>
+                            <secutiry:authentication property="principal.username"></secutiry:authentication>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="${pageContext.request.contextPath}/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="${pageContext.request.contextPath}/img/user2-160x160.jpg" class="img-circle"
+                                 alt="User Image">
 
                             <p>
-                                杨雯 - 数据管理员
+                                <secutiry:authentication property="principal.username"></secutiry:authentication>
+                                 - 数据管理员
                                 <small>最后登录 11:20AM</small>
                             </p>
                         </li>
@@ -64,7 +71,8 @@
                                 <a href="#" class="btn btn-default btn-flat">修改密码</a>
                             </div>
                             <div class="pull-right">
-                                <a href="${pageContext.request.contextPath}/logout" class="btn btn-default btn-flat">注销</a>
+                                <a href="${pageContext.request.contextPath}/logout"
+                                   class="btn btn-default btn-flat">注销</a>
                             </div>
                         </li>
                     </ul>

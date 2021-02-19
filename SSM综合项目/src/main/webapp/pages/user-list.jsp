@@ -110,12 +110,12 @@ able">
                                     <td>${user.statusStr}</td>
                                     <td class="text-center">
 
-                                        <a href="/aaa/order/findByid?id=2">
+                                        <a href="${pageContext.request.contextPath}/user/findById?id=${user.id}">
                                             <button type="button" class="btn bg-olive btn-xs">详情</button>
                                         </a>
-                                        <a href="/aaa/order/findByid?id=2">
-                                            <button type="button" class="btn bg-olive btn-xs">添加角色</button>
-                                        </a>
+                                        <a href="${pageContext.request.contextPath}/user/findUserByIdAndAllRole?id=${user.id}"
+                                           class="btn bg-olive btn-xs">添加角色</a>
+
                                     </td>
                                 </tr>
                             </c:forEach>

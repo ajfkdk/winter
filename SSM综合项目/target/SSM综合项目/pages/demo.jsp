@@ -55,8 +55,6 @@
 <jsp:include page="footerScript.jsp"></jsp:include>
 
 
-<script>
-
-</script>
+<script></script>
 </body>
 </html>

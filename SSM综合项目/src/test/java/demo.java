@@ -1,7 +1,11 @@
 import itheima.dao.IProductDao;
+import itheima.dao.IUserDao;
 import itheima.domain.Product;
+import itheima.domain.UserInfo;
 import itheima.domain.orders;
+import itheima.service.IUserService;
 import itheima.service.impl.IProductServiceimpl;
+import itheima.service.impl.IUserServiceImpl;
 import itheima.service.impl.OrderServiceimpl;
 import itheima.util.dataUtil;
 import org.junit.Test;
@@ -37,9 +41,9 @@ public class demo {
     @Test
     public void test02() {
         ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("application.xml");
-        OrderServiceimpl service = ioc.getBean("orderServiceimpl", OrderServiceimpl.class);
+        IUserDao service = ioc.getBean("iUserdao", IUserDao.class);
 
-        orders order = service.findByid(2);
+        UserInfo order = service.findById(2);
         if (order == null) {
             System.out.println("没有找到信息");
         } else {
@@ -56,4 +60,5 @@ public class demo {
         System.out.println(encode);
 
     }
+
 }

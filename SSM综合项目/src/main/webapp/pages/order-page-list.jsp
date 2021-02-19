@@ -120,33 +120,46 @@ able">
             <div class="box-footer">
                 <div class="pull-left">
                     <div class="form-group form-inline">
-                        总共${pageInfo.pages} 页，共${pageInfo.total} 条数据。 每页 <select id="changPage"  onchange="changePageSize()" class="form-control">
+                        总共${pageInfo.pages} 页，共${pageInfo.total} 条数据。 每页 <select id="changPage"
+                                                                                 onchange="changePageSize()"
+                                                                                 class="form-control">
                         <option>2</option>
                         <option>5</option>
                         <option>10</option>
                     </select> 条
                     </div>
+                    <div class="box-tools pull-right">
+                        <ul class="pagination">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/order/findAll?page=1&size=${pageInfo.pageSize}"
+                                   aria-label="Previous">首页</a></li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.prePage}&size=${pageInfo.pageSize}">上一页</a>
+                            </li>
+                            <c:forEach begin="1" end="${pageInfo.pages}" var="count">
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/order/findAll?page=${count}&size=${pageInfo.pageSize}">${count}</a>
+                                </li>
+                            </c:forEach>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.nextPage}&size=${pageInfo.pageSize}">下一页</a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.pages}&size=${pageInfo.pageSize}"
+                                   aria-label="Next">尾页</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="box-tools pull-right">
-                    <ul class="pagination">
-                        <li><a href="${pageContext.request.contextPath}/order/findAll?page=1&size=${pageInfo.pageSize}" aria-label="Previous">首页</a></li>
-                        <li><a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.prePage}&size=${pageInfo.pageSize}">上一页</a></li>
-                        <c:forEach begin="1" end="${pageInfo.pages}" var="count">
-                        <li><a href="${pageContext.request.contextPath}/order/findAll?page=${count}&size=${pageInfo.pageSize}">${count}</a></li>
-                        </c:forEach>
-                        <li><a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.nextPage}&size=${pageInfo.pageSize}">下一页</a></li>
-                        <li><a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.pages}&size=${pageInfo.pageSize}" aria-label="Next">尾页</a></li>
-                    </ul>
-                </div>
+
             </div>
             <!-- /.box-footer-->
         </div>
     </section>
 
-        <!-- 正文区域 /-->
+    <!-- 正文区域 /-->
 
 
-<%--    ============================================================================    --%>
+    <%--    ============================================================================    --%>
     </div>
     <!-- 内容区域 /-->
 

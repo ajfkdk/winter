@@ -13,5 +13,7 @@
 <a href="pages/login.jsp">testLogin</a>
 <hr>
 <a href="user/findAll">user/findAll</a>
+<hr>
+<a href="user/findById?id=1">findById</a>
 </body>
 </html>

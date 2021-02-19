@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="secutiry" uri="http://www.springframework.org/security/tags" %>
 <header class="main-header">
 
 
@@ -33,7 +34,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="${pageContext.request.contextPath}/img/user2-160x160.jpg" class="user-image"
                              alt="User Image">
-                        <span class="hidden-xs">杨雯</span>
+                        <span class="hidden-xs">
+<%--                         principal（代表当前操作的用户）.username   --%>
+                            <secutiry:authentication property="principal.username"></secutiry:authentication>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -42,7 +46,8 @@
                                  alt="User Image">
 
                             <p>
-                                杨雯 - 数据管理员
+                                <secutiry:authentication property="principal.username"></secutiry:authentication>
+                                - 数据管理员
                                 <small>最后登录 11:20AM</small>
                             </p>
                         </li>

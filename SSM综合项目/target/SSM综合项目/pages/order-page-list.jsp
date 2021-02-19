@@ -126,18 +126,19 @@ able">
                         <option>10</option>
                     </select> 条
                     </div>
+                    <div class="box-tools pull-right">
+                        <ul class="pagination">
+                            <li><a href="${pageContext.request.contextPath}/order/findAll?page=1&size=${pageInfo.pageSize}" aria-label="Previous">首页</a></li>
+                            <li><a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.prePage}&size=${pageInfo.pageSize}">上一页</a></li>
+                            <c:forEach begin="1" end="${pageInfo.pages}" var="count">
+                                <li><a href="${pageContext.request.contextPath}/order/findAll?page=${count}&size=${pageInfo.pageSize}">${count}</a></li>
+                            </c:forEach>
+                            <li><a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.nextPage}&size=${pageInfo.pageSize}">下一页</a></li>
+                            <li><a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.pages}&size=${pageInfo.pageSize}" aria-label="Next">尾页</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="box-tools pull-right">
-                    <ul class="pagination">
-                        <li><a href="${pageContext.request.contextPath}/order/findAll?page=1&size=${pageInfo.pageSize}" aria-label="Previous">首页</a></li>
-                        <li><a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.prePage}&size=${pageInfo.pageSize}">上一页</a></li>
-                        <c:forEach begin="1" end="${pageInfo.pages}" var="count">
-                        <li><a href="${pageContext.request.contextPath}/order/findAll?page=${count}&size=${pageInfo.pageSize}">${count}</a></li>
-                        </c:forEach>
-                        <li><a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.nextPage}&size=${pageInfo.pageSize}">下一页</a></li>
-                        <li><a href="${pageContext.request.contextPath}/order/findAll?page=${pageInfo.pages}&size=${pageInfo.pageSize}" aria-label="Next">尾页</a></li>
-                    </ul>
-                </div>
+
             </div>
             <!-- /.box-footer-->
         </div>

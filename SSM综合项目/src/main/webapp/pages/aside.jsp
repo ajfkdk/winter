@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="secutiry" uri="http://www.springframework.org/security/tags" %>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -15,7 +16,9 @@
                 <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>杨雯</p>
+                <p>
+                    <secutiry:authentication property="principal.username"></secutiry:authentication>
+                </p>
                 <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
             </div>
         </div>
@@ -50,35 +53,34 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-
-                    <li id="admin-login">
-                        <a href="${pageContext.request.contextPath}/user/findAll">
-                            <i class="fa fa-circle-o"></i> 用户管理
-                        </a>
-                    </li>
-
+                    <secutiry:authorize access="hasAnyRole('ADMIN')">
+                        <li id="admin-login">
+                            <a href="${pageContext.request.contextPath}/user/findAll">
+                                <i class="fa fa-circle-o"></i> 用户管理
+                            </a>
+                        </li>
+                    </secutiry:authorize>
                     <li id="admin-register">
-                        <a href="all-admin-register.html">
+                        <a href="${pageContext.request.contextPath}/role/findAll">
                             <i class="fa fa-circle-o"></i> 角色管理
                         </a>
                     </li>
 
                     <li id="admin-datalist">
-                        <a href="all-admin-datalist.html">
+                        <a href="${pageContext.request.contextPath}/permission/findAll">
                             <i class="fa fa-circle-o"></i> 资源权限管理
                         </a>
                     </li>
-
-                    <li id="admin-404">
-                        <a href="all-admin-404.html">
-                            <i class="fa fa-circle-o"></i> 访问日志
-                        </a>
-                    </li>
-
+                    <secutiry:authorize access="hasAnyRole('ADMIN')">
+                        <li id="admin-404">
+                            <a href="${pageContext.request.contextPath}/log/findAll">
+                                <i class="fa fa-circle-o"></i> 访问日志
+                            </a>
+                        </li>
+                    </secutiry:authorize>
 
                 </ul>
             </li>
-
 
 
             <li class="treeview">

@@ -44,6 +44,7 @@ public class IUserServiceImpl implements IUserService {
     }
 
     @Override
+
     public List<UserInfo> findAll() {
 //        从dao查询数据
 //        需要处理吗？不用
@@ -52,13 +53,37 @@ public class IUserServiceImpl implements IUserService {
         return all;
     }
 
-    @Autowired
-    private BCryptPasswordEncoder encoder;
+    //    @Autowired
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @Override
     public void addUser(UserInfo userInfo) {
         userInfo.setPassword(encoder.encode(userInfo.getPassword()));
         dao.addUser(userInfo);
         System.out.println("用户添加成功");
+    }
+
+    @Override
+    public UserInfo findById(Integer id) {
+        UserInfo userInfo = dao.findById(id);
+        return userInfo;
+    }
+
+    @Override
+    public List<Role> findOtherRole(Integer id) {
+        List<Role> roles = dao.findOtherRole(id);
+        return roles;
+    }
+
+    @Override
+    public void addRoleToUser(String userid, Integer[] ids) {
+        for (Integer id : ids) {
+            dao.addRoleToUser(userid, id);
+        }
+    }
+
+    @Override
+    public void deleteUser(Integer id) {
+        dao.deleteUser(id);
     }
 }
