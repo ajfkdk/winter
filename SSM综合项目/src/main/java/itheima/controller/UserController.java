@@ -5,8 +5,10 @@ import itheima.domain.UserInfo;
 import itheima.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.security.RolesAllowed;
@@ -65,7 +67,11 @@ public class UserController {
     }
 
     @RequestMapping("delete")
-    public void deleteUser(Integer id) {
-        service.deleteUser(id);
+    @ResponseBody
+    public String deleteUser(@RequestParam("ids") Integer[] ids) {
+        for (Integer id : ids) {
+            service.deleteUser(id);
+        }
+        return "redirect:findAll";
     }
 }

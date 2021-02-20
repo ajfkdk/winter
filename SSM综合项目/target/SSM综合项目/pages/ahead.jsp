@@ -47,7 +47,7 @@
 
                             <p>
                                 <secutiry:authentication property="principal.username"></secutiry:authentication>
-                                 - 数据管理员
+                                - 数据管理员
                                 <small>最后登录 11:20AM</small>
                             </p>
                         </li>

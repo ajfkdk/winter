@@ -14,9 +14,9 @@
            http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop.xsd
            ">
-<!--    扫描注解-->
+    <!--    扫描注解-->
     <context:component-scan base-package="itheima">
-<!--        选择不忽略的注解-->
+        <!--        选择不忽略的注解-->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
@@ -37,7 +37,7 @@
     <!-- 开启对注解的支持-->
     <mvc:annotation-driven></mvc:annotation-driven>
 
-<!--    <aop:aspectj-autoproxy proxy-target-class=“true”></aop:aspectj-autoproxy>-->
-    <aop:aspectj-autoproxy proxy-target-class="true" />
-    <aop:config proxy-target-class="true" />
+    <!--    <aop:aspectj-autoproxy proxy-target-class=“true”></aop:aspectj-autoproxy>-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <aop:config proxy-target-class="true"/>
 </beans>

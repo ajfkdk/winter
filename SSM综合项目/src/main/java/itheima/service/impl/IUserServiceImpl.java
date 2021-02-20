@@ -84,6 +84,8 @@ public class IUserServiceImpl implements IUserService {
 
     @Override
     public void deleteUser(Integer id) {
+        dao.deleteUser_Role(id);
         dao.deleteUser(id);
+        System.out.println("delete success!");
     }
 }

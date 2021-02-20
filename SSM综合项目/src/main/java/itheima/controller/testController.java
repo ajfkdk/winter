@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class testController {
     @ResponseBody
     @RequestMapping("01")
-    public String printf() {
-        System.out.println("接收到方法");
-        return "接收到方法";
+    public void test() {
+
     }
 }

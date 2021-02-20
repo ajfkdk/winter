@@ -28,17 +28,25 @@
 </body>
 <script>
     $("#btn").click(function () {
-      $.ajax({
-          url:"ajax/ajax",
-          contentType:"application/json;charset=utf-8",
-          data:'{"name":"hehe","age":"123"}',
-          dataType:"json",
-          type:"post",
-          success:function (data) {
-    alert(data)
+        var ids=new Array(1,3,4)
+        // alert(ids)
+        var userid = [1,2,3];
 
-          }
-      })
+
+        $.ajax({
+            url:"ajax/ajax",
+            data:{
+                "userid":ids
+            },
+            dataType:"json",
+            type:"post",
+            traditional:true,//防止深度序列化
+            cache:false,
+            async:false,
+            success:function(){
+
+            }
+        });
     });
 </script>
 </html>

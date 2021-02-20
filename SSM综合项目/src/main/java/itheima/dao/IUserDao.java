@@ -49,4 +49,7 @@ public interface IUserDao {
 
     @Delete("DELETE FROM USER WHERE id=#{id}")
     void deleteUser(Integer id);
+
+    @Delete("DELETE FROM user_role WHERE userId=#{id}")
+    void deleteUser_Role(Integer id);
 }

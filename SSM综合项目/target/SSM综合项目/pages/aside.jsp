@@ -54,11 +54,11 @@
                 </a>
                 <ul class="treeview-menu">
                     <secutiry:authorize access="hasAnyRole('ADMIN')">
-                    <li id="admin-login">
-                        <a href="${pageContext.request.contextPath}/user/findAll">
-                            <i class="fa fa-circle-o"></i> 用户管理
-                        </a>
-                    </li>
+                        <li id="admin-login">
+                            <a href="${pageContext.request.contextPath}/user/findAll">
+                                <i class="fa fa-circle-o"></i> 用户管理
+                            </a>
+                        </li>
                     </secutiry:authorize>
                     <li id="admin-register">
                         <a href="${pageContext.request.contextPath}/role/findAll">
@@ -72,16 +72,15 @@
                         </a>
                     </li>
                     <secutiry:authorize access="hasAnyRole('ADMIN')">
-                    <li id="admin-404">
-                        <a href="${pageContext.request.contextPath}/log/findAll">
-                            <i class="fa fa-circle-o"></i> 访问日志
-                        </a>
-                    </li>
+                        <li id="admin-404">
+                            <a href="${pageContext.request.contextPath}/log/findAll">
+                                <i class="fa fa-circle-o"></i> 访问日志
+                            </a>
+                        </li>
                     </secutiry:authorize>
 
                 </ul>
             </li>
-
 
 
             <li class="treeview">

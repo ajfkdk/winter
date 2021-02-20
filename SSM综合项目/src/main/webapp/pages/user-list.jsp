@@ -46,8 +46,10 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">列表</h3>
                 </div>
+
                 <div class="box-body">
                     <!-- 数据表格 -->
+
                     <div class="table-box">
                         <!--工具栏-->
                         <div class="pull-left">
@@ -64,7 +66,7 @@
                                         </button>
                                     </a>
                                     <a>
-                                        <button type="button" class="btn btn-default" title="删除"><i
+                                        <button onclick="x()" class="btn btn-default" title="删除"><i
                                                 class="fa fa-trash-o"></i> 删除
                                         </button>
                                     </a>
@@ -85,8 +87,8 @@
                         </div>
                         <!--工具栏/-->
                         <!--数据列表-->
-                        <table id="dataList" class="table table-bordered table-striped table-hover dataT
-able">
+
+                        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
                             <thead>
                             <tr>
                                 <th class="" style="padding-right: 0px"><input id="selall" type="checkbox"
@@ -102,7 +104,8 @@ able">
                             <tbody>
                             <c:forEach var="user" items="${Users}">
                                 <tr>
-                                    <td><input name="ids" class="icheckbox_square-blue" type="checkbox"></td>
+                                    <td><input name="ids" value="${user.id}" class="icheckbox_square-blue"
+                                               type="checkbox"></td>
                                     <td>${user.id}</td>
                                     <td>${user.username}</td>
                                     <td>${user.email}</td>
@@ -121,9 +124,11 @@ able">
                             </c:forEach>
                             </tbody>
                         </table>
+
                         <!--数据列表/-->
 
                     </div>
+
                     <!-- 数据表格 /-->
                 </div>
                 <!-- /.box-body -->
@@ -180,7 +185,29 @@ able">
 
 
 <script>
+    function x() {
+        var vals = [];
+        $('input:checkbox:checked').each(function (index, item) {
+            vals.push($(this).val());
+        });
 
+
+        $.ajax({
+            url: "${pageContext.request.contextPath}/user/delete",
+            data: {
+                "ids": vals
+            },
+            dataType: "json",
+            type: "post",
+            traditional: true,//防止深度序列化
+            cache: false,
+            async: false,
+            success: function () {
+
+            }
+        });
+        window.location.reload();
+    }
 </script>
 </body>
 </html>
